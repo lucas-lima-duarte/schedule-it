@@ -1,9 +1,9 @@
 import mongoose, { Document, mongo, Schema } from 'mongoose';
 
 export interface IAppointment extends Document {
-    client: string;
-    service: string;
+    customer: string;
     date: Date;
+    endDate: Date;
     status: 'scheduled' | 'completed' | 'cancelled'
     createdAt: Date
     updatedAt: Date
@@ -11,9 +11,9 @@ export interface IAppointment extends Document {
 
 const AppointmentSchema = new Schema(
     {
-        client: { type: String, required: true },
-        service: { type: String, required: true },
+        customer: { type: String, required: true },
         date: { type: Date, required: true },
+        endDate: { type: Date, required: true },
         status: {
             type: String,
             enum: ['scheduled', 'completed', 'cancelled'],
