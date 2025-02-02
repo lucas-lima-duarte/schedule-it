@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import Appointment from '../models/Appointment'
-import { AppointmentService } from '../services/Appointments.service';
 
 export class AppointmentController {
 
