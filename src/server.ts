@@ -3,6 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import mongoose from 'mongoose';
 import appointmentsRouter from './routes/Appointments.routes';
+import authRouter from './routes/Auth.routes';
 import { config } from 'dotenv';
 
 config();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGODB_URI || "")
     .catch(err => console.log('Failed to connect to MongoDB', err))
 
 app.use('/api/appointments', appointmentsRouter)
+app.use('/api', authRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
